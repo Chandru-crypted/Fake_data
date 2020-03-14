@@ -22,8 +22,8 @@ def onemonth(month_name):
         month.append(str(month_name))
     return (pay, category, month)
 
-def oneperson(uniq_no):
-    months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+def oneperson(uniq_no, year):
+    months = [1,2,3,4,5,6,7,8,9,10,11,12]
     bigpay, bigcategory, bigmonth, bigunique_no, bigyear  = [], [], [], [], []
     for monthname in months:
         pay, category, month = onemonth(monthname)
@@ -31,24 +31,15 @@ def oneperson(uniq_no):
         bigcategory.extend(category)
         bigmonth.extend(month)
         bigunique_no.extend([uniq_no]*len(category))
-        bigyear
-    data = {'Unique_no':bigunique_no, 'Month':bigmonth, 'Category':bigcategory, 'Payments':bigpay}
+        bigyear.extend([year]*len(category))
+    data = {'Unique_no':bigunique_no,'Year':bigyear, 'Month':bigmonth, 'Category':bigcategory, 'Payments':bigpay}
     df = pd.DataFrame(data)
     return df
-    
-def multiperson(num):
-    num = num - 1
-    m_df = pd.DataFrame(oneperson(0))
-    for i in range(1, num+1):
-        m_df = m_df.append(oneperson(i))
-    return(m_df)
-def multiyear(year, num):
-    num = num - 1
-    m_df = pd.DataFrame(oneperson(0, year))
-    for i in range(1, num+1):
-        m_df = m_df.append(oneperson(i, year + 1))
-    return(m_df)
-    
+oneperson(2, 2015)
 
-datframe = multiperson(10)
-dataframe.to_csv(r'C:\Users\chand\Desktop\File Name.csv', index = False)
+def multiyear(year, num):
+    m_df = pd.DataFrame(oneperson(0, year))
+    for i in range(1, num):
+        year = year + 1
+        m_df = m_df.append(oneperson(i, year))
+    return(m_df)
