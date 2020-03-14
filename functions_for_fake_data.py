@@ -11,7 +11,7 @@ def payment_list():
 
 def categories():
     items = ['Food', 'Phone Bill', 'Clothing', 'Entertaintment', 'Fuel', 'Health']
-    random.shuffle(items)
+    random.shuffle(items) #shuffles_All_The_Items_In_The_List 
     return(items)
 
 def onemonth(month_name):
@@ -35,7 +35,7 @@ def oneperson(uniq_no, year):
     data = {'Unique_no':bigunique_no,'Year':bigyear, 'Month':bigmonth, 'Category':bigcategory, 'Payments':bigpay}
     df = pd.DataFrame(data)
     return df
-oneperson(2, 2015)
+oneperson(2, 2015) #Defining_Unique-keys
 
 def multiyear(year, num):
     m_df = pd.DataFrame(oneperson(0, year))
