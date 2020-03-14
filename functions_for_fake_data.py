@@ -36,6 +36,7 @@ def oneperson(uniq_no):
     return df
     
 def multiperson(num):
+    num = num - 1
     m_df = pd.DataFrame(oneperson(0))
     print(m_df.head())
     for i in range(1, num+1):
@@ -43,4 +44,4 @@ def multiperson(num):
     return(m_df)
 
 datframe = multiperson(10)
-dataframe.to_csv(r'C:Users\ \File Name.csv', index = False)
+dataframe.to_csv(r'C:\Users\chand\Desktop\File Name.csv', index = False)
