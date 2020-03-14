@@ -37,8 +37,9 @@ def oneperson(uniq_no):
     
 def multiperson(num):
     m_df = pd.DataFrame(oneperson(0))
+    print(m_df.head())
     for i in range(1, num+1):
-        m_df.append(oneperson(i))
+        m_df = m_df.append(oneperson(i))
     return(m_df)
 
 datframe = multiperson(10)
