@@ -1,6 +1,5 @@
 def creating_sum_of_month:
-  df1 = oneperson(2)
-  df1
+  df1 = oneperson(2) #just creating a random number to you 
   month_name = df1['Month'].unique()
   sumlist= []
   for i in month_name:
