@@ -41,3 +41,6 @@ def multiperson(num):
         m_df.append(oneperson(i))
         print(oneperson(i))
     return(m_df)
+
+datframe = multiperson(10)
+dataframe.to_csv(r'C:Users\ \File Name.csv', index = False)
