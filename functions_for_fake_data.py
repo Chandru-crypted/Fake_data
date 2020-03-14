@@ -36,10 +36,9 @@ def oneperson(uniq_no):
     return df
     
 def multiperson(num):
-    m_df = pd.DataFrame(columns = ['Unique_no', 'Month', 'Category', 'Payments'])
-    for i in range(num):
+    m_df = pd.DataFrame(oneperson(0))
+    for i in range(1, num+1):
         m_df.append(oneperson(i))
-        print(oneperson(i))
     return(m_df)
 
 datframe = multiperson(10)
